@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+      
+<div class="container register">
+    <div class="row rowcs">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from earning your own money!</p>
+            <input type="submit" name="" value="Login"/><br/>
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active " id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="home" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#register" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Login</h3>
+                    <div class="row register-form">
+                        <div class="col-md-10">
+                            <form action="/login" method="POST" class="form" id="form-1">
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input id="email" name="email" type="text" placeholder="Email Address *" class="form-control">
+                                    <span class="form-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input id="password" name="password" type="text" placeholder="Password *" class="form-control">
+                                    <span class="form-message"></span>
+                              </div>
+                           
+                              <button type="submit" class="btnRegister2">Login</button>
+                            <div class="err-message" style="margin-top: 15px;">
+                                <span id="getMsg"><%= msgLg %> </span>
+                                <span>"hihi"</span>
+                            </div>
+                          
+                            </form>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+          
+              
+                <div class="tab-pane fade show" id="register" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">Register</h3>
+                    <form action="/register" method="POST" class="form" id="form-1">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fullname" class="form-label">Center Name</label>
+                                <input id="fullname" name="name" type="text" placeholder="Center Name *" class="form-control">
+                                <span class="form-message"></span>
+                              </div>
+                      
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input id="phone" name="phone" type="text" placeholder="Phone Number *" class="form-control">
+                                <span class="form-message"></span>
+                              </div>
+                        
+                              <div class="form-group">
+                                <label for="type" class="form-label">Type of Center</label>
+                                <select id="type" name="type" class="form-control">
+                                    <option class="hidden"  selected disabled>Please choose one</option>
+                                    <option>Cảnh sát an ninh trật tự</option>
+                                    <option>What is Your old Phone Number</option>
+                                    <option>What is your Pet Name?</option>
+                                </select>
+                            </div>
+                    
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input id="email" name="email" type="text" placeholder="Your email *" class="form-control">
+                                <span class="form-message"></span>
+                              </div>
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input id="password" name="password" type="password" placeholder="Password *" class="form-control">
+                                <span class="form-message"></span>
+                              </div>
+                              <div class="form-group">
+                                <label for="re-password" class="form-label">Confirm Password</label>
+                                <input id="password" name="confirm-password" type="password" placeholder="Confirm Password *" class="form-control">
+                                <span class="form-message"></span>
+                              </div>
+                        </div>
+                        <div class="err-message" style="margin-top: 5px;">
+                            <span><%= msgRg %> </span>
+
+                        </div>
+                        <button type="submit" class="btnRegister">Continue</button>
+                    </form>
+                    </div>
+                      
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var a = document.getElementById('getMsg');
+                console.log("giá của a  là:"+a.innerText)
+            a.innerHTML= a.innerText;
+            console.log("Đã gán xong");
+            console.log(a.innerHTML);
+        })
+          
+    </script>
+  </body>
+</html>
+
+<!------ Include the above in your HEAD tag ---------->

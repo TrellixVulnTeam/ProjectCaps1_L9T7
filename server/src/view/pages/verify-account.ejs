@@ -1,0 +1,64 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="/css/app.css">
+<div class="container register">
+                <div class="row custom_row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>You are 30 seconds away from earning your own money!</p>
+                        <input type="submit" name="" value="Login"/><br/>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">OTP Verification</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-12">
+                                        <form action="" method="GET" class="form" id="form-1">
+                                        <div class="form-group">
+                                            <input id="codeId" name="id" type="text" placeholder="OTP Code *" class="form-control inputCusom">
+                                            <span class="form-message"></span>
+                                            <a href="http:// sdfsdfsdfsdf" id="btnSend">Send</a>
+                                            <span style="margin: 10px auto; display: block; "><%= msg %> </span>
+                                          </div>
+                                          
+
+                                        </form>
+                                      
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                          
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                window.onload =function(){
+                  
+                }
+                var getUserInput = document.getElementById("codeId");
+                getUserInput.onchange = function(){
+                    var getUrl = window.location.search.substring(0);
+                    var domain =  document.domain;
+                    var getUserInput =$("#codeId").val();
+                    var newUrl = "user/"+getUrl+"&&id="+getUserInput;
+                    $("#btnSend").prop("href",newUrl);
+                }
+          
+            </script>
