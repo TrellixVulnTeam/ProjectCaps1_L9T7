@@ -13,7 +13,7 @@
   <body>
       
 <div class="container register">
-    <div class="row rowcs">
+    <div class="row rowcs1">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
             <h3>Welcome</h3>
@@ -22,10 +22,10 @@
         </div>
         <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li class="nav-item">
+                <li class="nav-item nav-item1">
                     <a class="nav-link active " id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="home" aria-selected="true">Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item nav-item1">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#register" role="tab" aria-controls="profile" aria-selected="false">Register</a>
                 </li>
             </ul>
@@ -108,7 +108,7 @@
                               </div>
                         </div>
                         <div class="err-message" style="margin-top: 5px;">
-                            <span><%= msgRg %> </span>
+                            <span>Show msg</span>
 
                         </div>
                         <button type="submit" class="btnRegister">Continue</button>
@@ -134,7 +134,14 @@
             a.innerHTML= a.innerText;
             console.log("Đã gán xong");
             console.log(a.innerHTML);
+            if (localStorage) {
+            console.log("support");
+    } else {
+        console.log("not suppport");
+    
+    }
         })
+    
           
     </script>
   </body>

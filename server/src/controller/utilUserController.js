@@ -1,7 +1,13 @@
 const model = require('../model/userUtil')
-const express = require('express');
+const amapp =  require('../model/firebaseConfig')
+const express = require('express')
 const app = express();
+/* const ls = require('local-storage'); */
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
 var nodemailer = require("nodemailer");
+
+
 class MessErrorLogin{
     constructor() {
         this.msg ="Test msg"
@@ -49,6 +55,7 @@ class MessErrorVerification {
 class UtilUserController{
     
     login(req,res,next){
+
         model.findOne({email:req.body.email,password:req.body.password})
         .then(user=>{ 
             if(user){
@@ -64,7 +71,24 @@ class UtilUserController{
             }
             else{
                 msgLogin.setMsg("Incorrect email or password!")
+                    
+                var database = amapp.database().ref().child('InfomationCenter/yym15naI10VGGoK94hR1Pa7eFX52/')
+              
+                    database.on('value', (dataSnapshot)=> {
+                        console.log("often")
+                        console.log(dataSnapshot.val())
+                        var a = dataSnapshot.val().center_id;
+                        localStorage.setItem("user_ID","dsfddddddhsd,sa")
+                        console.log(a)
+                        localStorage.setItem('myFirstKey', 'myFirstValue');
+                        console.log(localStorage.getItem('myFirstKey'));
+                      /*   ls.set('baz', 'tar');
+                        ls.get('baz'); */
+                      })
+             
+                console.log("Sometimes")    
                 res.redirect('back');
+              
             }})
         .catch(next)       
     }
