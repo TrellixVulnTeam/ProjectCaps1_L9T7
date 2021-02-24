@@ -1,10 +1,5 @@
 const model = require('../model/userUtil')
-const amapp =  require('../model/firebaseConfig')
-const express = require('express')
-const app = express();
-/* const ls = require('local-storage'); */
-var LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./scratch');
+
 var nodemailer = require("nodemailer");
 
 
@@ -60,38 +55,25 @@ class UtilUserController{
         .then(user=>{ 
             if(user){
                 const userid = user.email
-            if(user.status){
-                res.render('pages/homePage');      
-            }
-            else{
-                var msg="This account has not been verified! Please"+ "<a href='/verify-account/?user="+userid+"'>verify-account</a> to continue"
-                msgLogin.setMsg(msg)
-                res.redirect('back');
+                if(user.status){
+                    res.render('pages/homePage');      
                 }
+                else{
+                    var msg="This account has not been verified! Please"+ "<a href='/verify-account/?user="+userid+"'>verify-account</a> to continue"
+                    msgLogin.setMsg(msg)
+                    res.redirect('back');
+                    }
             }
             else{
                 msgLogin.setMsg("Incorrect email or password!")
-                    
-                var database = amapp.database().ref().child('InfomationCenter/yym15naI10VGGoK94hR1Pa7eFX52/')
-              
-                    database.on('value', (dataSnapshot)=> {
-                        console.log("often")
-                        console.log(dataSnapshot.val())
-                        var a = dataSnapshot.val().center_id;
-                        localStorage.setItem("user_ID","dsfddddddhsd,sa")
-                        console.log(a)
-                        localStorage.setItem('myFirstKey', 'myFirstValue');
-                        console.log(localStorage.getItem('myFirstKey'));
-                      /*   ls.set('baz', 'tar');
-                        ls.get('baz'); */
-                      })
-             
-                console.log("Sometimes")    
+               
                 res.redirect('back');
               
             }})
         .catch(next)       
     }
+
+
     register(req,res,next){
         var userEmail = req.body.email
         model.findOne({email:userEmail})
@@ -102,7 +84,7 @@ class UtilUserController{
                     res.redirect('back');   
                 }
             }
-            else{
+            else{  
                 var object = req.body
                  const user = new model(object)
                  user.save(err=>{
